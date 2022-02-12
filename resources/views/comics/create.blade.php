@@ -3,7 +3,8 @@
 @section('pageContent')
     <h1>Aggiungi Un Nuovo Fumetto</h1>
 
-    <form>
+    <form action="{{route('comics.store')}}" method="POST">
+        @csrf
         <div class="mb-3">
           <label for="title">Titolo Fumetto</label>
           <input type="text" class="form-control" id="title" name="title">
@@ -17,7 +18,7 @@
             <input type="text" class="form-control" id="type" name="type">
         </div>
         <div class="mb-3">
-            <label for="image">Titolo Fumetto</label>
+            <label for="image">Copertina</label>
             <input type="text" class="form-control" id="image" name="image" placeholder="url img">
         </div>      
         <div class="mb-3">

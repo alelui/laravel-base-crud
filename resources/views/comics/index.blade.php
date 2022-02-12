@@ -24,4 +24,7 @@
             @endforeach
         </tbody>
       </table>
+      <div class="btn-add my-5">
+        <a href="{{route('comics.create')}}"><button type="button" class="btn btn-info">Aggiungi</button></a>
+      </div>
 @endsection

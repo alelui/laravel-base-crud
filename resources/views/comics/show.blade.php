@@ -8,7 +8,7 @@
     <div class="text">
         <p>{{$comic->description}}</p>
     </div>
-    <div class="button">
-        <a href="{{route('comics.index')}}"><button type="button" class="btn btn-primary">Back</button></a></td>
+    <div class="return-btn">
+        <a href="{{route('comics.index')}}"><button type="button" class="btn btn-primary">Back to Home</button></a>
     </div>
 @endsection

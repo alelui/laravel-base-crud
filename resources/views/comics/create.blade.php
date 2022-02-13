@@ -35,5 +35,5 @@
         </div>
         <button type="submit" class="my-5 btn btn-info">Aggiungi</button>
         <a href="{{route('comics.index')}}"><button type="button" class="btn btn-primary">Back to Home</button></a>
-      </form>
+    </form>
 @endsection

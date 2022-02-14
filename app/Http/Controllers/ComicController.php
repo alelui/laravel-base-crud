@@ -105,6 +105,16 @@ class ComicController extends Controller
     {
         $date = $request->all();
 
+        $request ->validate([
+            "title" => "required|string|max:80|unique:comics,title,{$comic->id}",
+            "description" => "nullable|string",
+            "image" => "required|url",
+            "price" => "required|numeric|between:10,9999",
+            "series" => "required|string|max:80",
+            "sale_date" => "required|date_format:Y-m-d",
+            "type" => "nullable|string|max:80",
+        ]);
+
         $comic->title = $date["title"];
         $comic->image = $date["image"];
         $comic->price = $date["price"];

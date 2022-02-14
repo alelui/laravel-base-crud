@@ -49,7 +49,7 @@
         </div>
         <div class="form-floating">
             <label for="description"></label>
-            <textarea class="form-control" placeholder="Descrizione Fumetto" @error('description') is-invalid @enderror id="description" name="description" rows="8" value="{{old("description")}}"></textarea>
+            <textarea class="form-control" @error('description') is-invalid @enderror placeholder="Descrizione Fumetto" id="description" name="description" rows="8" value="{{old("description")}}"></textarea>
             @error('description')
                 <div class="alert alert-danger mt-2">{{ $message }}</div>
             @enderror

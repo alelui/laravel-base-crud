@@ -36,8 +36,21 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $date = ($request->all());
+        //prendo i dati dalla form
+        $date = $request->all();
 
+        //validazione
+        $request ->validate([
+            "title" => "required|string|max:80|unique:comics",
+            "description" => "nullable|string",
+            "image" => "required|url",
+            "price" => "required|numeric|between:10,9999",
+            "series" => "required|string|max:80",
+            "sale_date" => "required|date_format:Y-m-d",
+            "type" => "nullable|string|max:80",
+        ]);
+
+        //inserisco un nuovo record nella tabella
         $newComic = new Comic();
         $newComic->title = $date["title"];
         $newComic->image = $date["image"];
@@ -54,7 +67,6 @@ class ComicController extends Controller
         }
 
         $newComic->save();
-
         return redirect()->route('comics.show', $newComic->id);
     }
 
@@ -91,7 +103,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $date = ($request->all());
+        $date = $request->all();
 
         $comic->title = $date["title"];
         $comic->image = $date["image"];

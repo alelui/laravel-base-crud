@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
             <label for="sale_date">Data</label>
-            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="aaa-mm-gg">
+            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Y-m-g">
         </div>
         <div class="form-floating">
             <label for="description"></label>
@@ -36,4 +36,13 @@
         <button type="submit" class="my-5 btn btn-info">Aggiungi</button>
         <a href="{{route('comics.index')}}"><button type="button" class="btn btn-primary">Back to Home</button></a>
     </form>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection
